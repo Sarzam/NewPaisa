@@ -36,7 +36,7 @@ class TaxAssistant {
               { rate: 0.35, upTo: 578125 },
               { rate: 0.37, upTo: Infinity }
             ],
-            // Other filing statuses would be defined similarly
+            
           }
         },
         commonDeductions: [
@@ -73,23 +73,22 @@ class TaxAssistant {
             description: "Credit for low to moderate income workers",
             amount: "Varies based on income and number of qualifying children"
           }
-          // More credits would be defined here
+          
         ]
       };
     }
     
     async processUserQuery(query, userContext = {}) {
-      // Add message to conversation history
+      
       this.conversationHistory.push({
         role: "user",
         content: query
       });
       
       try {
-        // Classify the query intent
+        
         const intent = this._classifyQueryIntent(query);
         
-        // Generate a response based on the intent
         let response;
         
         switch (intent) {
@@ -110,12 +109,10 @@ class TaxAssistant {
             break;
           case "general_question":
           default:
-            // For general questions, use the AI API
             response = await this._getAIResponse(query, userContext);
             break;
         }
         
-        // Add response to conversation history
         this.conversationHistory.push({
           role: "assistant",
           content: response
@@ -129,7 +126,6 @@ class TaxAssistant {
     }
     
     _classifyQueryIntent(query) {
-      // A simple rule-based classifier - in a real implementation, this would be more sophisticated
       const lowerQuery = query.toLowerCase();
       
       if (lowerQuery.includes("deduction") || lowerQuery.includes("write off") || 
@@ -153,21 +149,18 @@ class TaxAssistant {
     }
     
     _handleDeductionQuestion(query, userContext) {
-      // Find relevant deductions based on the query
       const matchingDeductions = this._findRelevantDeductions(query);
       
       if (matchingDeductions.length === 0) {
         return "I couldn't find specific information about that deduction. Would you like to know about common tax deductions instead?";
       }
-      
-      // Format the response
+
       let response = "Here's what I found about that deduction:\n\n";
       for (const deduction of matchingDeductions) {
         response += `**${deduction.name}**\n${deduction.description}\n`;
         response += `**Qualifications:** ${deduction.qualifications}\n\n`;
       }
       
-      // Add personalized advice if context is available
       if (userContext.income) {
         response += this._getPersonalizedDeductionAdvice(matchingDeductions[0].id, userContext);
       }
@@ -176,7 +169,6 @@ class TaxAssistant {
     }
     
     _handleCreditQuestion(query, userContext) {
-      // Similar to deduction handler, but for tax credits
       const matchingCredits = this._findRelevantCredits(query);
       
       if (matchingCredits.length === 0) {
@@ -193,7 +185,6 @@ class TaxAssistant {
     }
     
     _handleFilingStatusQuestion(query, userContext) {
-      // Recommend filing status based on user context
       if (!userContext.maritalStatus) {
         return "Your filing status affects your tax rates and eligibility for certain deductions and credits. " +
                "The main filing statuses are: Single, Married Filing Jointly, Married Filing Separately, " +
@@ -333,10 +324,10 @@ class TaxAssistant {
     }
     
     _calculateTaxFromBrackets(taxableIncome, filingStatus, taxYear) {
-      // Get the appropriate tax brackets
+      // Geting the appropriate tax brackets
       const brackets = this.taxKnowledge.taxBrackets[taxYear][filingStatus];
       
-      // Calculate tax progressively through each bracket
+      // Progressively calculation tax through each bracket
       let tax = 0;
       let remainingIncome = taxableIncome;
       let previousBracketLimit = 0;
@@ -356,7 +347,7 @@ class TaxAssistant {
       return Math.round(tax);
     }
     
-    // Public methods for managing conversation and user context
+    
     
     clearConversationHistory() {
       this.conversationHistory = [];
@@ -367,5 +358,4 @@ class TaxAssistant {
     }
   }
   
-  // Export for use in other modules
   export default TaxAssistant;

@@ -1,18 +1,16 @@
 // background.js
 
-// Importing modules (would be bundled in the actual extension)
 import DocumentProcessor from './document-processor.js';
 import DeductionFinder from './deduction-finder.js';
 import TaxAssistant from './tax-assistant.js';
 
-// Initializung NewPaisa's core components
 const documentProcessor = new DocumentProcessor();
 const deductionFinder = new DeductionFinder();
 const taxAssistant = new TaxAssistant('your-api-key-here');
 
-// User data context
+
 let userContext = {
-  taxYear: new Date().getFullYear() - 1, // Default to previous year
+  taxYear: new Date().getFullYear() - 1, 
   filingStatus: null,
   income: null,
   documents: [],
@@ -26,8 +24,8 @@ let model = null;
 // Initialize the Gemini AI model
 async function initGeminiAI() {
   try {
-    // Import dynamically in the browser context
-    const { GoogleGenerativeAI } = await import('https://cdn.jsdelivr.net/npm/@google/generative-ai@0.3.0/dist/browser/index.js');
+    const { GoogleGenerativeAI } = await import('https://cdn.jsdelivr.net/npm/@google/generative-ai@0.3.0/dist/browser/index.js'); 
+    // there are issues with the import, so I have to use the CDN link.
     const apiKey = process.env.GEMINI_API_KEY;
     const genAI = new GoogleGenerativeAI(apiKey);
 
@@ -41,11 +39,9 @@ async function initGeminiAI() {
   }
 }
 
-// Call initialization when the service worker starts
 initGeminiAI();
 ////////////////////////////
-// Listen for messages from popup or content scripts
-chrome.runtime.onMessage.addListener(message, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
   console.log('Received message:', message);
   
   switch (message.action) {
@@ -125,7 +121,6 @@ chrome.runtime.onMessage.addListener(message, sender, sendResponse) => {
       sendResponse({success: false, error: 'Unknown action'});
   }
   
-  // Return true to indicate we'll send a response asynchronously
   return true;
 });
 
@@ -150,10 +145,8 @@ async function handleDocumentProcessing(document) {
   }
 }
 
-// On extension installation or update
 chrome.runtime.onInstalled.addListener(details => {
   if (details.reason === 'install') {
-    // First time installation
     chrome.storage.local.set({
       onboardingComplete: false,
       userPreferences: {
@@ -163,7 +156,6 @@ chrome.runtime.onInstalled.addListener(details => {
       }
     });
     
-    // Open onboarding page
     chrome.tabs.create({
       url: 'onboarding.html'
     });

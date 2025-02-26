@@ -28,20 +28,14 @@ class DocumentProcessor {
   
     async processDocument(file) {
       try {
-        // Step 1: Convert file to base64 for API processing
         const base64Data = await this._fileToBase64(file);
-        
-        // Step 2: Send to OCR API (example - you'd replace with actual API call)
         const textContent = await this._performOCR(base64Data);
         
-        // Step 3: Determine document type
         const docType = this._detectDocumentType(textContent);
         
-        // Step 4: Extract structured data based on document type
         const extractedData = this._extractDataByType(textContent, docType);
         
-        // Step 5: Add to processed documents
-        const processedDoc = {
+        const processedDoc = {  
           id: Date.now().toString(),
           filename: file.name,
           type: docType,
@@ -57,7 +51,7 @@ class DocumentProcessor {
         throw error;
       }
     }
-    
+    //work in progress
     _fileToBase64(file) {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -68,9 +62,6 @@ class DocumentProcessor {
     }
     
     async _performOCR(base64Data) {
-      // In a real implementation, this would call a cloud OCR service
-      // For this example, we'll simulate a successful OCR
-      // Example integration with a cloud OCR service:
       /*
       const response = await fetch('https://api.ocr-service.com/process', {
         method: 'POST',
@@ -89,7 +80,7 @@ class DocumentProcessor {
       return result.text;
       */
       
-      // Simulated response for demo purposes
+      // This is just Dummy code, I plan to link a cloud based OCR service.
       return new Promise(resolve => {
         setTimeout(() => {
           resolve("SIMULATED OCR TEXT CONTENT FOR TAX DOCUMENT");
@@ -115,23 +106,14 @@ class DocumentProcessor {
     }
     
     _extractDataByType(textContent, docType) {
-      // This would contain specialized extraction logic for each document type
-      // Uses pattern matching, positional data, and NLP to extract structured information
       
-      // For a real implementation, you might use a specialized document extraction API
-      // or build custom extractors for each document type
-      
-      // Simplified example:
+      // This is also a dummy inplementation for the prototypes sake.
       const typeConfig = this.documentTypes[docType];
       const extractedData = {};
-      
-      // Initialize with empty values
+
       typeConfig.fields.forEach(field => {
         extractedData[field] = "";
       });
-      
-      // In a real implementation, this would have complex extraction logic
-      // For this example, we'll just return the template with sample data
       
       if (docType === "W2") {
         extractedData.employer_name = "Example Corp";
@@ -160,5 +142,5 @@ class DocumentProcessor {
     }
   }
   
-  // Export for use in other modules
+  
   export default DocumentProcessor;
