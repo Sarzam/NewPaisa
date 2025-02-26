@@ -53,7 +53,7 @@ Here are some snapshots of the extension in action:
 
 ## 🛠️ Developed By
 
-**Misbah Shaikh**
+## Misbah Shaikh
 
 - [LinkedIn](https://www.linkedin.com/in/misbahsrshaikh)
 - [GitHub](https://github.com/Sarzam)
