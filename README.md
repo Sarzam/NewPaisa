@@ -43,7 +43,7 @@ Here are some snapshots of the extension in action:
 
 ### NewPaisa Quiz (Based on Monte Carlo simulation)
 
-![NewPaisa Quiz Screenshot](images/tax_assistant.png)
+![NewPaisa Quiz Screenshot](images/quiz.gif)
 
 ### Hover Button
 
