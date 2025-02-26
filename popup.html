@@ -49,18 +49,21 @@
           </ul>
         </div>
       </div>
-      
+      <!-- ----------------------------------------------------- -->
       <div id="documents" class="tab-content">
         <div class="upload-section">
           <h2>Upload Tax Documents</h2>
           <div class="upload-box" id="document-upload">
-            <img src="icons/icon48" alt="Upload">
-            <p>Drag and drop files here or click to browse</p>
-            <input type="file" id="file-input" multiple style="display: none;">
+            <div class="upload-icon">
+              <img src="icons/icon16.png" alt="Upload Icon">
+            </div>
           </div>
-          <button class="primary-button" id="camera-button">Scan with Camera</button>
+          
+          <!-- Hidden File Input -->
+          <input type="file" id="file-input" style="display: none;" multiple>
+          <label class="primary-button" for="file-input">Upload Documents</label>
         </div>
-        
+      
         <div class="document-list">
           <h3>Processed Documents</h3>
           <div id="documents-container" class="documents-grid">
@@ -69,6 +72,7 @@
         </div>
       </div>
       
+            <!-- --------------------------------------------------------------------- -->
       <div id="deductions" class="tab-content">
         <h2>Potential Deductions</h2>
         <div class="deduction-filters">

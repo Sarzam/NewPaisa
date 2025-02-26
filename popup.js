@@ -18,12 +18,7 @@ tabs.forEach(tab => {
 });
 
 // Document upload functionality
-const uploadBox = document.getElementById('document-upload');
 const fileInput = document.getElementById('file-input');
-
-uploadBox.addEventListener('click', () => {
-  fileInput.click();
-});
 
 fileInput.addEventListener('change', (event) => {
   const files = event.target.files;
@@ -40,11 +35,7 @@ fileInput.addEventListener('change', (event) => {
   }
 });
 
-// Handle camera scan
-const cameraButton = document.getElementById('camera-button');
-cameraButton.addEventListener('click', () => {
-  alert("Camera scanning is not supported yet.");
-});
+
 
 // Populate processed documents from document-finder.js
 chrome.runtime.sendMessage({ action: 'getProcessedDocuments' }, (response) => {
@@ -116,7 +107,7 @@ sendMessageButton.addEventListener('click', () => {
       if (response && response.answer) {
         loadingMessage.innerHTML = `<p>${response.answer}</p>`;
       } else {
-        loadingMessage.innerHTML = `<p>Sorry, Couldn't load</p>`;
+        loadingMessage.innerHTML = `<p>...</p>`;
       }
     
       // Scroll to the latest message

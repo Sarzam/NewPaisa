@@ -158,4 +158,44 @@ body {
   #send-message:active {
     background-color: #3e8e41;
   }
+
+  .upload-section {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .upload-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 60%;
+    cursor: pointer;
+  }
+  
+  .upload-icon img {
+    width: 50px;  /* Adjust this value to make the icon smaller */
+    height: auto;
+  }
+  
+  .primary-button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .primary-button:hover {
+    background-color: #45a049;
+  }
+  
   
