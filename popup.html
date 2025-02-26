@@ -1,0 +1,113 @@
+<!-- popup.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NewPaisa</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>NewPaisa</h1>
+      <p>Easy Taxes, Happy Wallet</p>
+    </header>
+    
+    <div class="tab-container">
+      <div class="tabs">
+        <button class="tab-button active" data-tab="dashboard">Dashboard</button>
+        <button class="tab-button" data-tab="documents">Documents</button>
+        <button class="tab-button" data-tab="deductions">Deductions</button>
+        <button class="tab-button" data-tab="assistant">Assistant</button>
+      </div>
+      
+      <div id="dashboard" class="tab-content active">
+        <div class="summary-card">
+          <h2>Tax Summary</h2>
+          <div class="summary-stats">
+            <div class="stat">
+              <span class="stat-label">Estimated Refund</span>
+              <span class="stat-value" id="refund-amount">Rs. 0.00/-</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Documents Processed</span>
+              <span class="stat-value" id="docs-count">0</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Deductions Found</span>
+              <span class="stat-value" id="deduction-count">0</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="action-card">
+          <h3>Next Steps</h3>
+          <ul id="action-items" class="action-list">
+            <li class="action-item">Upload your W-2 forms</li>
+            <li class="action-item">Connect bank accounts for expense tracking</li>
+            <li class="action-item">Review potential deductions</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div id="documents" class="tab-content">
+        <div class="upload-section">
+          <h2>Upload Tax Documents</h2>
+          <div class="upload-box" id="document-upload">
+            <img src="icons/icon48" alt="Upload">
+            <p>Drag and drop files here or click to browse</p>
+            <input type="file" id="file-input" multiple style="display: none;">
+          </div>
+          <button class="primary-button" id="camera-button">Scan with Camera</button>
+        </div>
+        
+        <div class="document-list">
+          <h3>Processed Documents</h3>
+          <div id="documents-container" class="documents-grid">
+            <!-- Documents will be dynamically added here -->
+          </div>
+        </div>
+      </div>
+      
+      <div id="deductions" class="tab-content">
+        <h2>Potential Deductions</h2>
+        <div class="deduction-filters">
+          <select id="deduction-category">
+            <option value="all">All Categories</option>
+            <option value="business">Business Expenses</option>
+            <option value="education">Education</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="home">Home & Mortgage</option>
+            <option value="charity">Charitable Donations</option>
+          </select>
+          <div class="search-box">
+            <input type="text" id="deduction-search" placeholder="Search deductions...">
+          </div>
+        </div>
+        
+        <div id="deductions-container" class="deductions-list">
+          <!-- Deductions will be dynamically added here -->
+        </div>
+      </div>
+      
+      <div id="assistant" class="tab-content">
+        <h2>NewPaisa Tax Assistant</h2>
+        <div class="assistant-container">
+          <div class="chat-container" id="chat-messages">
+            <!-- Chat messages will appear here -->
+            <div class="message system-message">
+              <p>Hello! I'm your NewPaisa AI Tax Assistant. How can I help you with your taxes today?</p>
+            </div>
+          </div>
+          <div class="input-container">
+            <input type="text" id="user-input" placeholder="Ask about deductions, tax laws, or filing questions...">
+            <button id="send-message">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
