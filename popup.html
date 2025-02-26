@@ -1,4 +1,3 @@
-<!-- popup.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +26,7 @@
           <div class="summary-stats">
             <div class="stat">
               <span class="stat-label">Estimated Refund</span>
-              <span class="stat-value" id="refund-amount">Rs. 0.00/-</span>
+              <span class="stat-value" id="refund-amount">Rs. 0.00</span>
             </div>
             <div class="stat">
               <span class="stat-label">Documents Processed</span>
@@ -43,9 +42,9 @@
         <div class="action-card">
           <h3>Next Steps</h3>
           <ul id="action-items" class="action-list">
-            <li class="action-item">Upload your W-2 forms</li>
-            <li class="action-item">Connect bank accounts for expense tracking</li>
-            <li class="action-item">Review potential deductions</li>
+            <li class="action-item">Upload your Form 16/16A</li>
+            <li class="action-item">Add investment proofs for Section 80C</li>
+            <li class="action-item">Review HRA and other exemptions</li>
           </ul>
         </div>
       </div>
@@ -72,17 +71,18 @@
         </div>
       </div>
       
-            <!-- --------------------------------------------------------------------- -->
+      <!-- --------------------------------------------------------------------- -->
       <div id="deductions" class="tab-content">
         <h2>Potential Deductions</h2>
         <div class="deduction-filters">
           <select id="deduction-category">
             <option value="all">All Categories</option>
-            <option value="business">Business Expenses</option>
-            <option value="education">Education</option>
-            <option value="healthcare">Healthcare</option>
-            <option value="home">Home & Mortgage</option>
-            <option value="charity">Charitable Donations</option>
+            <option value="section-80c">Section 80C</option>
+            <option value="section-80d">Section 80D (Health)</option>
+            <option value="section-80g">Section 80G (Donations)</option>
+            <option value="section-24">Home Loan Interest</option>
+            <option value="hra">HRA Exemption</option>
+            <option value="nps">NPS Contribution</option>
           </select>
           <div class="search-box">
             <input type="text" id="deduction-search" placeholder="Search deductions...">
@@ -100,11 +100,11 @@
           <div class="chat-container" id="chat-messages">
             <!-- Chat messages will appear here -->
             <div class="message system-message">
-              <p>Hello! I'm your NewPaisa AI Tax Assistant. How can I help you with your taxes today?</p>
+              <p>Namaste! I'm your NewPaisa AI Tax Assistant. How can I help you with your Income Tax filing today?</p>
             </div>
           </div>
           <div class="input-container">
-            <input type="text" id="user-input" placeholder="Ask about deductions, tax laws, or filing questions...">
+            <input type="text" id="user-input" placeholder="Ask about tax slabs, exemptions, or ITR filing...">
             <button id="send-message">Send</button>
           </div>
         </div>

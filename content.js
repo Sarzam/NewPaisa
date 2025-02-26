@@ -1,4 +1,4 @@
-// content.js (Mostly a context file.)
+// content.js (Context File. Shortcut Hover Button is also defined here.)
 const fieldMappings = {
   'cleartax.in': {
     'form16_employer_name': '#employerName',

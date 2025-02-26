@@ -91,7 +91,10 @@ body {
     grid-template-columns: 1fr;
     gap: 10px;
   }
-  
+
+  .stat-value{
+    font-weight: bold;
+  }
   .deduction-filters, .input-container {
     display: flex;
     gap: 10px;
