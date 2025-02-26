@@ -31,11 +31,11 @@ Here are some snapshots of the extension in action:
 
 ### Dashboard
 
-![Document Upload Screenshot](images/tax_assistant.png)
+![Document Upload Screenshot](images/dashboard.png)
 
 ### Document Upload
 
-![Document Upload Screenshot](images/tax_assistant.png)
+![Document Upload Screenshot](images/doc_upload.png)
 
 ### NewPaisa AI Tax Assistant
 
@@ -47,7 +47,7 @@ Here are some snapshots of the extension in action:
 
 ### Hover Button
 
-![Hover Button Screenshot](images/tax_assistant.png)
+![Hover Button Screenshot](images/hover_button.png)
 
 ---
 
