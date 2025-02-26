@@ -1,0 +1,78 @@
+flowchart TD
+    subgraph "User Interface"
+        PopupUI[Popup Interface\npopup.html/popup.js]
+        PopupUI --> |User Tabs| Dashboard[Dashboard Tab]
+        PopupUI --> |User Tabs| Documents[Documents Tab]
+        PopupUI --> |User Tabs| Deductions[Deductions Tab]
+        PopupUI --> |User Tabs| Assistant[Assistant Tab]
+    end
+
+    subgraph "Core Components"
+        BG[Background Script\nbackground.js]
+        DP[Document Processor\ndocument-processor.js]
+        DF[Deduction Finder\ndeduction-finder.js]
+        TA[Tax Assistant\ntax-assistant.js]
+    end
+
+    subgraph "Content Script"
+        CS[Content Script\ncontent.js]
+        FM[Field Mappings]
+        FB[Form Filling]
+        AB[Assistant Button]
+        
+        CS --> FM
+        CS --> FB
+        CS --> AB
+    end
+
+    subgraph "External Services"
+        AI[Gemini AI\nGoogle API]
+        OCR[OCR Service\nSimulated]
+    end
+
+    %% User interaction flows
+    User --> |Opens Extension| PopupUI
+    NewPaisa_Dashboard --> |Views Summary| BG
+    Documents --> |Uploads Document| BG
+    Deductions --> |Views Deductions| BG
+    Assistant --> |Asks Question| BG
+
+    %% Core processing flows
+    BG --> |Process Document| DP
+    BG --> |Find Deductions| DF
+    BG --> |Tax Questions| TA
+    BG <--> |Website Integration| CS
+
+    %% External service flows
+    DP --> |Text Extraction| OCR
+    TA --> |AI Assistance| AI
+
+    %% Document processing flow
+    Upload[Upload Tax Document] --> BG
+    BG --> |Send for Processing| DP
+    DP --> |Extract Data| OCR
+    DP --> |Return Structured Data| BG
+    BG --> |Analyze for Deductions| DF
+    DF --> |Return Found Deductions| BG
+    BG --> |Update UI| PopupUI
+
+    %% Website integration flow
+    WebsiteTax[Gov Tax Website] <--> CS
+    User --> |Visits| WebsiteTax
+    CS --> |Detect Form Fields| FM
+    CS --> |Autofill Forms| FB
+    AB --> |Open Assistant| PopupUI
+
+    %% Assistant flow
+    User --> |Tax Questions| NewPaisa_Assistant
+    Assistant --> |Send Query| BG
+    BG --> |Process Query| TA
+    TA --> |Get AI Response| AI
+    AI --> |Return Answer| TA
+    TA --> |Return Response| BG
+    BG --> |Display Answer| Assistant
+
+    %% Data flows
+    UserContext[User Context Data] <--> BG
+    ProcessedDocs[Processed Documents] <--> BG
+    FoundDeductions[Found Deductions] <--> BG

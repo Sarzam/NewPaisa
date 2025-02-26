@@ -3,9 +3,7 @@
   "name": "NewPaisa",
   "version": "1.0",
   "description": "Easy Taxes, Happy Wallet",
-  "content_security_policy": {
-    "extension_pages": "script-src 'self' https://unpkg.com/@google/generative-ai@0.3.0/; object-src 'self'"
-  },
+  
   "permissions": [
     "storage",
     "activeTab",

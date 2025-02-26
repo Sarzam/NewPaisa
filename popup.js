@@ -116,7 +116,7 @@ sendMessageButton.addEventListener('click', () => {
       if (response && response.answer) {
         loadingMessage.innerHTML = `<p>${response.answer}</p>`;
       } else {
-        loadingMessage.innerHTML = `<p>Sorry, I couldn't find an answer to your question.</p>`;
+        loadingMessage.innerHTML = `<p>Sorry, Couldn't load</p>`;
       }
     
       // Scroll to the latest message
