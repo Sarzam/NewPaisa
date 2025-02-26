@@ -1,14 +1,33 @@
 # NewPaisa: Easy Taxes, Happy Wallet
 
-![NewPaisa Logo](images\NewPaisa.png)
+![NewPaisa Logo](images\logo.png)
+
+---
 
 ## 🚀 Overview
 
-Awesome Web Extension helps users [solve a problem]. It integrates seamlessly with [platforms] to provide [benefits].
+A cool Chrome Extension that helps newbie taxpayers to Ease the complicated process of Tax Filing by automating certain aspects & while leveling up their financial(tax) literacy!
 
-## Instructions to Run the Extension
+---
 
-## Components
+## ⚙️ Installation Guide
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Sarzam/NewPaisa.git
+   cd NewPaisa
+   ```
+
+2. Open Chrome and navigate to `chrome://extensions/`
+3. Enable 'Developer mode'
+4. Click 'Load unpacked' and select the cloned project folder
+
+---
+
+## 🔗 Demo Screenshots
+
+Here are some snapshots of the extension in action:
 
 ### Dashboard
 
@@ -22,11 +41,21 @@ Awesome Web Extension helps users [solve a problem]. It integrates seamlessly wi
 
 ![NewPaisa AI Tax Assistant Screenshot](images/tax_assistant.png)
 
-### NewPaisa Quiz
+### NewPaisa Quiz (Based on Monte Carlo simulation)
 
-Based on Monte Carlo simulation
 ![NewPaisa Quiz Screenshot](images/tax_assistant.png)
 
 ### Hover Button
 
-![Hover Button Screenshot](images/hover_button.png)
+![Hover Button Screenshot](images/tax_assistant.png)
+
+---
+
+## 🛠️ Developed By
+
+**Misbah Shaikh**
+
+- [LinkedIn](https://www.linkedin.com/in/misbahsrshaikh)
+- [GitHub](https://github.com/Sarzam)
+
+---
